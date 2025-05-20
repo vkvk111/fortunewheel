@@ -33,10 +33,32 @@ if __name__ == "__main__":
     try:
         while True:
             ch0 = adc.read_channel(0)
-            pin = ch0 / 1023.0 * 3.3
+            v = ch0 / 1023.0 * 3.3
             #round to 2 decimal places
-            pin = round(pin, 1)
-            print(f"CH0: {ch0:4d}  Pin: {pin:.2f} V", end='\r')
+            v = round(pin, 1)
+            pin = -1
+            #compare wich of the 8 possible pins
+
+            if v >= 0.1:
+                if v < 0.2:
+                    pin = 1
+                elif v < 0.3:
+                    pin = 2
+                elif v < 0.4:
+                    pin = 3
+                elif v < 0.5:
+                    pin = 4
+                elif v < 0.6:
+                    pin = 5
+                elif v < 0.7:
+                    pin = 6
+                elif v < 3.2:
+                    pin = 7
+                else:
+                    pin = 8
+            else:
+                pin = -1
+            #print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin}", end='\r')
 
             #print(f"CH0: {ch0:4d}", end='\r')
           
