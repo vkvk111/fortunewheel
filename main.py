@@ -35,7 +35,7 @@ if __name__ == "__main__":
             ch0 = adc.read_channel(0)
             pin = ch0 / 1023.0 * 3.3
             #round to 2 decimal places
-            pin = round(pin, 2)
+            pin = round(pin, 1)
             print(f"CH0: {ch0:4d}  Pin: {pin:.2f} V", end='\r')
 
             #print(f"CH0: {ch0:4d}", end='\r')
