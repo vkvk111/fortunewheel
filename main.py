@@ -35,7 +35,7 @@ if __name__ == "__main__":
             ch0 = adc.read_channel(0)
             v = ch0 / 1023.0 * 3.3
             #round to 2 decimal places
-            v = round(pin, 1)
+            v = round(v, 1)
             pin = -1
             #compare wich of the 8 possible pins
 
@@ -58,7 +58,8 @@ if __name__ == "__main__":
                     pin = 8
             else:
                 pin = -1
-            #print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin}", end='\r')
+                
+            print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin}", end='\r')
 
             #print(f"CH0: {ch0:4d}", end='\r')
           
