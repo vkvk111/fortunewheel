@@ -5,7 +5,7 @@ class MCP3002:
     def __init__(self, bus=0, device=0):
         self.spi = spidev.SpiDev()
         self.spi.open(bus, device)
-        self.spi.max_speed_hz = 1000000  # 1 MHz (safe for 3.3V)
+        self.spi.max_speed_hz = 1300000  # 1 MHz (safe for 3.3V)
         self.spi.mode = 0b00  # SPI Mode 0 (CPOL=0, CPHA=0)
         
     def read_channel(self, channel):
@@ -33,7 +33,12 @@ if __name__ == "__main__":
     try:
         while True:
             ch0 = adc.read_channel(0)
-            print(f"CH0: {ch0:4d}", end='\r')
+            pin = ch0 / 1023.0 * 3.3
+            #round to 2 decimal places
+            pin = round(pin, 2)
+            print(f"CH0: {ch0:4d}  Pin: {pin:.2f} V", end='\r')
+
+            #print(f"CH0: {ch0:4d}", end='\r')
           
     except KeyboardInterrupt:
         print("\nExiting...")
