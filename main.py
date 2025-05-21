@@ -35,11 +35,11 @@ if __name__ == "__main__":
             ch0 = adc.read_channel(0)
             v = ch0 / 1023.0 * 3.3
             #round to 2 decimal places
-            v = round(v, 1)
+            v = round(v, 2)
             pin = -1
             #compare wich of the 8 possible pins
 
-            if v >= 0.1:
+            if v >= :
                 if v < 0.2:
                     pin = 1
                 elif v < 0.3:
