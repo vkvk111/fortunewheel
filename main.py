@@ -40,26 +40,26 @@ if __name__ == "__main__":
             #compare wich of the 8 possible pins
 
             if v > 0:
-                if v < 0.2:
-                    pin = 1
-                elif v < 0.3:
-                    pin = 2
-                elif v < 0.4:
-                    pin = 3
-                elif v < 0.5:
-                    pin = 4
-                elif v < 0.6:
-                    pin = 5
-                elif v < 0.7:
+                if v <= 0.04:
                     pin = 6
-                elif v < 3.2:
-                    pin = 7
-                else:
+                elif v <= 0.085:
+                    pin = 1
+                elif v <= 0.11:
+                    pin = 2
+                elif v < 0.13:
+                    pin = 3
+                elif v < 0.16:
+                    pin = 4
+                elif v < 0.24:
+                    pin = 5
+                elif v < 3:
                     pin = 8
+                else:
+                    pin = 7
             else:
                 pin = -1
                 
-            print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin}", end='\r')
+            print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin} ", end='\r')
 
             #print(f"CH0: {ch0:4d}", end='\r')
           
