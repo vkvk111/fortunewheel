@@ -39,7 +39,7 @@ if __name__ == "__main__":
             pin = -1
             #compare wich of the 8 possible pins
 
-            if v > 0:
+            if v > 0.02:
                 if v <= 0.04:
                     pin = 6
                 elif v <= 0.085:
