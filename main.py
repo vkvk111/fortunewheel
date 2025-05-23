@@ -62,18 +62,16 @@ if __name__ == "__main__":
             else:
                 pin = -1
 
-            if pin != lastpin and streak > 5:
-                print(f"Pin: {lastpin} (V: {v})")
-
             if pin != -1:
                 if lastpin == pin:
                     streak += 1
                 else:
-                    streak = 0 
+                    if streak > 5:
+                        print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin} ")
+                    streak = 0
 
-            
-                    
             lastpin = pin
+
 
             #print(f"CH0: {ch0:4d}", end='\r')
           
