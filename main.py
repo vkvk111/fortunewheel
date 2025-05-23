@@ -56,10 +56,13 @@ if __name__ == "__main__":
                     pin = 8
                 else:
                     pin = 7
+
             else:
                 pin = -1
-                
-            print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin} ", end='\r')
+
+            if pin != -1:
+                print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin} ")
+            #print(f"CH0: {ch0:4d} V: {v:.2f} Pin: {pin} ", end='\r')
 
             #print(f"CH0: {ch0:4d}", end='\r')
           
